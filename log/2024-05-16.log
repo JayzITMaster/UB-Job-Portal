@@ -1,0 +1,78 @@
+[2024-05-16 21:20:08][INFO] SQLHandler::__construct database connected
+[2024-05-16 21:20:08][INFO] Getting the applications made for a job with id 4 APIController::GetApplicationsWithApplicantId
+[2024-05-16 21:20:08][INFO] running jointed query: SELECT a.id AS applicant_id, a.firstname, a.lastname, a.description AS applicant_description, a.studentID, a.email, a.resume_doc, a.profile_picture,
+    j.job_id, j.title AS job_title, j.description AS job_description, j.details_doc, 
+    jt.job_type,
+    l.location,
+    c.category,
+    e.profile_picture AS employer_profile_picture,
+    e.company_name,
+    e.email AS employer_email, 
+    e.phone_number AS employer_phone_number, 
+    app.created_at
+    FROM applications AS app
+    INNER JOIN applicants AS a
+    ON app.applicant_id = a.id
+    INNER JOIN jobs AS j
+    ON app.job_id = j.job_id
+    INNER JOIN employers AS e
+    ON j.employer_id = e.id
+    INNER JOIN job_types AS jt
+    ON j.job_type_id = jt.id
+    INNER JOIN categories AS c
+    ON j.category_id = c.id
+    INNER JOIN locations AS l
+    ON j.location_id = l.id  WHERE a.id = ?;
+[2024-05-16 21:20:08][INFO] Successful request execution. Got applications with provided job id: 4.
+[2024-05-16 21:21:54][INFO] SQLHandler::__construct database connected
+[2024-05-16 21:21:54][INFO] Getting the applications made for a job with id 4 APIController::GetApplicationsWithApplicantId
+[2024-05-16 21:21:54][INFO] running jointed query: SELECT a.id AS applicant_id, a.firstname, a.lastname, a.description AS applicant_description, a.studentID, a.email, a.resume_doc, a.profile_picture,
+    j.job_id, j.title AS job_title, j.description AS job_description, j.details_doc, 
+    jt.job_type,
+    l.location,
+    c.category,
+    e.profile_picture AS employer_profile_picture,
+    e.company_name,
+    e.email AS employer_email, 
+    e.phone_number AS employer_phone_number, 
+    app.created_at
+    FROM applications AS app
+    INNER JOIN applicants AS a
+    ON app.applicant_id = a.id
+    INNER JOIN jobs AS j
+    ON app.job_id = j.job_id
+    INNER JOIN employers AS e
+    ON j.employer_id = e.id
+    INNER JOIN job_types AS jt
+    ON j.job_type_id = jt.id
+    INNER JOIN categories AS c
+    ON j.category_id = c.id
+    INNER JOIN locations AS l
+    ON j.location_id = l.id  WHERE a.id = ?;
+[2024-05-16 21:21:54][INFO] Successful request execution. Got applications with provided job id: 4.
+[2024-05-16 21:22:47][INFO] SQLHandler::__construct database connected
+[2024-05-16 21:22:47][INFO] Getting the applications made for a job with id 18 APIController::GetApplicationsWithApplicantId
+[2024-05-16 21:22:47][INFO] running jointed query: SELECT a.id AS applicant_id, a.firstname, a.lastname, a.description AS applicant_description, a.studentID, a.email, a.resume_doc, a.profile_picture,
+    j.job_id, j.title AS job_title, j.description AS job_description, j.details_doc, 
+    jt.job_type,
+    l.location,
+    c.category,
+    e.profile_picture AS employer_profile_picture,
+    e.company_name,
+    e.email AS employer_email, 
+    e.phone_number AS employer_phone_number, 
+    app.created_at
+    FROM applications AS app
+    INNER JOIN applicants AS a
+    ON app.applicant_id = a.id
+    INNER JOIN jobs AS j
+    ON app.job_id = j.job_id
+    INNER JOIN employers AS e
+    ON j.employer_id = e.id
+    INNER JOIN job_types AS jt
+    ON j.job_type_id = jt.id
+    INNER JOIN categories AS c
+    ON j.category_id = c.id
+    INNER JOIN locations AS l
+    ON j.location_id = l.id  WHERE a.id = ?;
+[2024-05-16 21:22:47][DEBUG] error: no results received
