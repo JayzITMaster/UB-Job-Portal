@@ -1,0 +1,75 @@
+Table administrators{
+  id int [pk, increment]
+  username varchar(10) [not null]
+  password varchar(256)  [not null]
+  email varchar(60) [not null]
+  role int [ref: > roles.id, not null]
+  created_at timestamp [default: `now()`]
+}
+
+Table applicants{
+  id int [pk, increment]
+  firstname varchar(20) [not null]
+  lastname varchar(20) [not null]
+  description varchar(200) [null]
+  studentID int [not null]
+  email varchar(60) [not null]
+  password varchar(256) [not null]
+  role int [ref: > roles.id, not null]
+  resume varchar(20) [null]
+  created_at timestamp [default: `now()`]
+}
+
+Table employers{
+  id int [pk, increment]
+  company_name varchar(60) [not null]
+  recruiter_firstname varchar(20) [not null]
+  recruiter_lastname varchar(20) [not null]
+  email varchar(60) [not null]
+  password varchar(256) [not null]
+  phone_number varchar(15) [null]
+  role int [ref: > roles.id, not null]
+  created_at timestamp [default: `now()`]
+}
+
+Table roles{
+  id int [pk, increment]
+  role_name varchar(20) [not null]
+  created_at timestamp [default: `now()`]
+}
+
+Table locations{
+  id int [pk, increment]
+  location varchar(25) [not null]
+  created_at timestamp [default: `now()`]
+}
+
+Table categories{
+  id int [pk, increment]
+  category varchar(20) [not null]
+  created_at timestamp [default: `now()`]
+}
+
+Table job_types{
+  id int [pk, increment]
+  job_type varchar(20)
+  created_at timestamp [default: `now()`]
+}
+
+Table jobs{
+  id int [pk, increment]
+  title varchar(30) [not null]
+  description text [not null]
+  employer_id int [ref: > employers.id, not null]
+  location_id int [ref: > locations.id, not null]
+  category_id int [ref: > categories.id, not null]
+  job_type_id int [ref: > job_types.id, not null]
+  created_at timestamp [default: `now()`]
+}
+
+Table applications{
+  id int [pk, increment]
+  job_id int [ref: > jobs.id, not null]
+  applicant_id int [ref: > applicants.id, not null]
+  created_at timestamp [default: `now()`]
+}
